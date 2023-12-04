@@ -485,3 +485,71 @@ img
 		justify-content: space-between;
 	}
 }
+
+/* Estilos para o accordion */
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.accordion-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.accordion-title {
+    padding: 10px;
+    background-color: #029BA7;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.accordion-content {
+    padding: 10px;
+    display: none;
+}
+
+/* Ícones de mais e menos */
+.elementor-accordion-icon {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.elementor-accordion-icon-closed {
+    display: inline-block;
+}
+
+.elementor-accordion-icon-opened {
+    display: none;
+}
+
+/* Mostrar/ocultar conteúdo ao clicar */
+.accordion-item.active .accordion-title .elementor-accordion-icon-closed {
+    display: none;
+}
+
+.accordion-item.active .accordion-title .elementor-accordion-icon-opened {
+    display: inline-block;
+}
+
+.accordion-item.active .accordion-content {
+    display: block;
+}
+
+/* Adiciona uma transição suave para a animação */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+/* Define a altura máxima para o conteúdo quando está ativo */
+.accordion-item.active .accordion-content {
+    max-height: 500px; /* Ajuste conforme necessário */
+}
+#paragrafoAcesso {
+    color: rgb(255, 255, 255); /* Ou qualquer outra cor desejada */
+}
