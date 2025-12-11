@@ -41,9 +41,9 @@ a {
 {
 	--primary-font: 'Poppins', sans-serif;
 
-	--primary-color: #029BA7;   /*--- Yellow color ----*/
-	--secondry-color: #161B4E;  /*--- Black color ----*/
-	--third-color: #ffffff;     /*--- White color ----*/
+	--primary-color: #024df8;   /*--- Cor de destaque (Azul) ----*/
+	--secondry-color: #202020;  /*--- Cor de fundo (Cinza escuro) ----*/
+	--third-color: #ffffff;     /*--- Cor do texto (Branco) ----*/
 }
 
 .logo-container {
@@ -52,7 +52,7 @@ a {
 }
 
 .logo {
-    width: 100px; /* Defina o tamanho desejado para a logo */
+    width: 150px; /* Defina o tamanho desejado para a logo */
     height: auto; /* Isso mantém a proporção da imagem */
 }
 
@@ -96,7 +96,7 @@ img
 
 .heading
 {
-	color: var(--primary-color);
+	color: var(--third-color);
 	font-size: 2rem;
 	font-weight: 900;
 	font-style: italic;
@@ -289,7 +289,7 @@ img
 
 .review-content
 {
-	background-color: var(--primary-color);
+	background-color: var(--secondry-color);
 	padding: 1rem;
 }
 
@@ -297,6 +297,7 @@ img
 {
 	font-size: 1.2rem;
 	font-style: italic;
+	color: var(--primary-color);
 }
 /*-------------- Testimonial section styling end ---------*/
 
@@ -322,7 +323,7 @@ img
 /*------------ copyright styling start -------------*/
 .footer-bottom
 {
-	background: var(--primary-color);
+	background: var(--secondry-color);
 }
 
 .footer-bottom .container
@@ -339,6 +340,10 @@ img
 {
 	text-transform: uppercase;
 	font-style: italic;
+}
+
+.contact-para-line a {
+	color: var(--third-color);
 }
 /*------------ copyright styling end -------------*/
 
@@ -501,7 +506,8 @@ img
 
 .accordion-title {
     padding: 10px;
-    background-color: #029BA7;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -528,6 +534,7 @@ img
 
 /* Mostrar/ocultar conteúdo ao clicar */
 .accordion-item.active .accordion-title .elementor-accordion-icon-closed {
+    color: var(--third-color);
     display: none;
 }
 
