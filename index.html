@@ -70,6 +70,10 @@
 					<span id="minutes" class="timer-number">00</span>
 					<span class="timer-label">Minutos</span>
 				</div>
+				<div class="timer-box">
+					<span id="seconds" class="timer-number">00</span>
+					<span class="timer-label">Segundos</span>
+				</div>
 			</div>
 			<!-- Fim do Relógio -->
 		</div>
@@ -305,11 +309,13 @@
 		const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 		const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 		const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 		// Mostra o resultado nos elementos com os IDs correspondentes
 		document.getElementById("days").innerText = String(days).padStart(2, '0');
 		document.getElementById("hours").innerText = String(hours).padStart(2, '0');
 		document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+		document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
 
 		// Se a contagem acabar, mostra uma mensagem
 		if (distance < 0) {
