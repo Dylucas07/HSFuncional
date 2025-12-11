@@ -634,4 +634,41 @@ img
 		box-shadow: 0 0 0 0 rgba(2, 77, 248, 0);
 	}
 }
+
+/* Estilos do Relógio de Contagem Regressiva */
+.countdown-timer {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+
+.timer-box {
+	background-color: rgba(0, 0, 0, 0.2);
+	border: 1px solid var(--primary-color);
+	border-radius: 10px;
+	padding: 0.8rem 1.2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 80px;
+}
+
+.timer-number {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: var(--third-color);
+	line-height: 1;
+}
+
+.timer-label {
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	color: #ccc;
+}
+
+.countdown-expired {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
 /*-------------- Pre-enrollment section styling end ---------*/
