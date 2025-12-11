@@ -565,3 +565,73 @@ img
 #paragrafoAcesso {
     color: rgb(255, 255, 255); /* Ou qualquer outra cor desejada */
 }
+
+/*-------------- Pre-enrollment section styling start ---------*/
+.pre-enrollment {
+	padding: 6rem 1rem; /* Aumentei o padding para dar mais respiro ao card */
+	text-align: center;
+	background-color: #1a1a1a; /* Um tom um pouco mais claro que o fundo principal */
+}
+
+.pre-enrollment .container {
+	background-color: var(--secondry-color);
+	padding: 3rem 2rem;
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+	border: 1px solid #333;
+	max-width: 900px; /* Limita a largura máxima do card */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+}
+
+.pre-enrollment .heading {
+	margin-bottom: 0;
+}
+
+.pre-enrollment-text {
+	font-size: 1.2rem;
+	line-height: 1.6;
+	max-width: 700px; /* Limita a largura do texto para melhor legibilidade */
+}
+
+.pre-enrollment-text strong {
+	color: var(--primary-color);
+	font-weight: 700;
+}
+
+.btn-enroll {
+	padding: 1rem 2.5rem;
+	font-size: 1.2rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	display: inline-flex;
+	color: var(--third-color); /* Garante que o texto do botão seja branco */
+	text-decoration: none;
+	align-items: center;
+	gap: 10px;
+	animation: pulse 2s infinite;
+}
+
+.btn-enroll i {
+	font-size: 1.1rem;
+}
+
+/* Animação de pulso para o botão */
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 rgba(2, 77, 248, 0.7);
+	}
+	70% {
+		transform: scale(1.05);
+		box-shadow: 0 0 10px 20px rgba(2, 77, 248, 0);
+	}
+	100% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 rgba(2, 77, 248, 0);
+	}
+}
+/*-------------- Pre-enrollment section styling end ---------*/
