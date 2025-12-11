@@ -120,41 +120,36 @@
 				FEEDBACKS DE ALGUNS DOS NOSSOS ALUNOS
 			</h2>
 
-			<div class="row">
-				<div class="col">
-					<div class="review-card">
-						<div class="author-pic author-pic-a"></div>
-						<div class="review-content">
-							<p class="review para-line white">
-								"Treinar na HS GYM transformou minha saúde e disposição. O acompanhamento personalizado fez toda a diferença nos meus resultados. Recomendo a todos!"
-							</p>
-							<p class="author-name">Ana Souza, 31</p>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="review-card">
-						<div class="author-pic author-pic-b"></div>
-						<div class="review-content">
-							<p class="review para-line white">
-								"A energia contagiante e o profissionalismo do personal trainer me motivam a cada treino. Nunca me senti tão bem e confiante com meu corpo."
-							</p>
-							<p class="author-name">Carlos Lima, 28</p>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="review-card">
-						<div class="author-pic author-pic-c"></div>
-						<div class="review-content">
-							<p class="review para-line white">
-								"Resultados incríveis em pouco tempo! O método de treino funcional e HIIT é desafiador e muito eficaz. Estou amando a minha evolução."
-							</p>
-							<p class="author-name">Mariana Costa, 44</p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<div class="testimonial-carousel">
+                <div class="carousel-wrapper">
+                    <!-- Depoimento 1 -->
+                    <div class="review-card active">
+                        <img src="img/author-a.png" alt="Foto de Ana Souza" class="author-pic">
+                        <div class="review-content">
+                            <p class="review para-line white">"Treinar na HS GYM transformou minha saúde e disposição. O acompanhamento personalizado fez toda a diferença nos meus resultados. Recomendo a todos!"</p>
+                            <p class="author-name">Ana Souza, 31</p>
+                        </div>
+                    </div>
+                    <!-- Depoimento 2 -->
+                    <div class="review-card">
+                        <img src="img/author-b.png" alt="Foto de Carlos Lima" class="author-pic">
+                        <div class="review-content">
+                            <p class="review para-line white">"A energia contagiante e o profissionalismo do personal trainer me motivam a cada treino. Nunca me senti tão bem e confiante com meu corpo."</p>
+                            <p class="author-name">Carlos Lima, 28</p>
+                        </div>
+                    </div>
+                    <!-- Depoimento 3 -->
+                    <div class="review-card">
+                        <img src="img/author-c.png" alt="Foto de Mariana Costa" class="author-pic">
+                        <div class="review-content">
+                            <p class="review para-line white">"Resultados incríveis em pouco tempo! O método de treino funcional e HIIT é desafiador e muito eficaz. Estou amando a minha evolução."</p>
+                            <p class="author-name">Mariana Costa, 44</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="carousel-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
 		</div>
 	</section>
 
@@ -347,6 +342,35 @@
 
 	backToTopButton.addEventListener('click', () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
+	});
+
+	// --- SCRIPT PARA O CARROSSEL DE DEPOIMENTOS ---
+	document.addEventListener('DOMContentLoaded', function () {
+		const slides = document.querySelectorAll('.testimonial-carousel .review-card');
+		const nextBtn = document.querySelector('.next-btn');
+		const prevBtn = document.querySelector('.prev-btn');
+		let currentSlide = 0;
+
+		function showSlide(index) {
+			slides.forEach((slide, i) => {
+				slide.classList.remove('active');
+				if (i === index) {
+					slide.classList.add('active');
+				}
+			});
+		}
+
+		nextBtn.addEventListener('click', () => {
+			currentSlide = (currentSlide + 1) % slides.length;
+			showSlide(currentSlide);
+		});
+
+		prevBtn.addEventListener('click', () => {
+			currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+			showSlide(currentSlide);
+		});
+
+		showSlide(currentSlide); // Mostra o primeiro slide inicialmente
 	});
 </script>
 

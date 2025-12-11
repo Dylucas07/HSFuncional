@@ -259,44 +259,52 @@ img
 	padding: 2rem 1rem;
 }
 
-.review-card
-{
-	margin: 1.5rem 0;
+.testimonial-carousel {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-.author-pic
-{
-	height: 45vh;
-	background-size: cover;
-	background-position: top center;
-	transition: transform 0.3s ease-in-out; /* Transição suave para o zoom */
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
-.review-card:hover .author-pic {
-	transform: scale(1.05); /* Efeito de zoom na imagem */
-	cursor: pointer; /* Muda o cursor para indicar interatividade */
+.review-card {
+    background-color: #2a2a2a;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    min-width: 100%;
+    box-sizing: border-box;
+    display: none; /* Esconde todos por padrão */
 }
 
-.author-pic-a
-{
-	background-image: url(img/author-a.png);
-	background-position: center center;
+.review-card.active {
+    display: block; /* Mostra apenas o slide ativo */
 }
 
-.author-pic-b
-{
-	background-image: url(img/author-b.png);
-}
-
-.author-pic-c
-{
-	background-image: url(img/author-c.png);
+.author-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .review-content
 {
-	background-color: var(--secondry-color);
-	padding: 1rem;
+	/* O conteúdo agora está dentro do review-card */
+}
+
+.review {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .author-name
@@ -304,6 +312,35 @@ img
 	font-size: 1.2rem;
 	font-style: italic;
 	color: var(--primary-color);
+    font-weight: 600;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(2, 77, 248, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
 }
 /*-------------- Testimonial section styling end ---------*/
 
@@ -452,12 +489,12 @@ img
 		width: 100%;
 	}
 
-	/*-------------- Testimonial section --------------*/
-	.testimonial
-	{
-		/*margin: 2rem 0*/
-	}
-
+    .carousel-btn.prev-btn {
+        left: -50px;
+    }
+    .carousel-btn.next-btn {
+        right: -50px;
+    }
 	.testimonial .container
 	{
 		padding: 1rem 4rem;
