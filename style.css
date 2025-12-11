@@ -341,6 +341,11 @@ img
 	text-transform: uppercase;
 	font-style: italic;
 }
+.contact-heading,
+.contact-heading a {
+	color: var(--primary-color);
+	text-decoration: none;
+}
 
 .contact-para-line a {
 	color: var(--third-color);
