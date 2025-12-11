@@ -269,6 +269,12 @@ img
 	height: 45vh;
 	background-size: cover;
 	background-position: top center;
+	transition: transform 0.3s ease-in-out; /* Transição suave para o zoom */
+}
+
+.review-card:hover .author-pic {
+	transform: scale(1.05); /* Efeito de zoom na imagem */
+	cursor: pointer; /* Muda o cursor para indicar interatividade */
 }
 
 .author-pic-a
@@ -670,5 +676,135 @@ img
 .countdown-expired {
 	font-size: 1.5rem;
 	font-weight: bold;
+}
+/*-------------- Pre-enrollment section styling end ---------*/
+
+/* Estilos para Animação de Scroll (Fade-in) */
+.fade-in {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Estilos para o Botão "Voltar ao Topo" */
+.back-to-top-btn {
+	display: none; /* Inicia oculto */
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 99;
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	font-size: 20px;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none; /* Remove sublinhado do link */
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.back-to-top-btn:hover {
+	opacity: 0.8;
+	transform: scale(1.1);
+}
+
+/* Estilos Mobile que foram movidos do HTML */
+@media (max-width: 768px) {
+	.hero .container, .logo-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.logo-container {
+		margin-bottom: 20px;
+	}
+	.countdown-timer {
+		gap: 10px;
+	}
+	.timer-box {
+		padding: 8px;
+		min-width: 60px;
+	}
+	.timer-number {
+		font-size: 2rem;
+	}
+	.timer-label {
+		font-size: 0.7rem;
+	}
+}
+/*-------------- Pre-enrollment section styling end ---------*/
+
+/* Estilos para Animação de Scroll (Fade-in) */
+.fade-in {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Estilos para o Botão "Voltar ao Topo" */
+.back-to-top-btn {
+	display: none; /* Inicia oculto */
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 99;
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	font-size: 20px;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none; /* Remove sublinhado do link */
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.back-to-top-btn:hover {
+	opacity: 0.8;
+	transform: scale(1.1);
+}
+
+/* Estilos Mobile que foram movidos do HTML */
+@media (max-width: 768px) {
+	.hero .container, .logo-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+	.logo-container {
+		margin-bottom: 20px;
+	}
+	.countdown-timer {
+		gap: 10px;
+	}
+	.timer-box {
+		padding: 8px;
+		min-width: 60px;
+	}
+	.timer-number {
+		font-size: 2rem;
+	}
+	.timer-label {
+		font-size: 0.7rem;
+	}
 }
 /*-------------- Pre-enrollment section styling end ---------*/
