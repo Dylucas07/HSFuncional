@@ -274,7 +274,7 @@ img
 .review-card {
     background-color: #2a2a2a;
     border-radius: 15px;
-    padding: 2rem;
+    padding: 2rem 1.5rem; /* Reduzi o padding lateral para dar mais espaço ao texto */
     text-align: center;
     min-width: 100%;
     box-sizing: border-box;
@@ -316,10 +316,14 @@ img
     font-weight: 600;
 }
 
+.carousel-nav {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
 .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: static; /* Remove o posicionamento absoluto */
+    transform: none; /* Remove a transformação */
     background-color: rgba(2, 77, 248, 0.4); /* Aumentei a transparência */
     color: white;
     border: none;
@@ -328,21 +332,13 @@ img
     height: 40px; /* Diminuí o tamanho */
     font-size: 1rem; /* Diminuí o ícone */
     cursor: pointer;
-    z-index: 10;
     transition: background-color 0.3s, transform 0.3s;
+    margin: 0 10px; /* Adiciona espaço entre os botões */
 }
 
 .carousel-btn:hover {
     background-color: rgba(2, 77, 248, 0.8); /* Efeito suave no hover */
-    transform: translateY(-50%) scale(1.1);
-}
-
-.prev-btn {
-    left: 10px;
-}
-
-.next-btn {
-    right: 10px;
+    transform: scale(1.1);
 }
 /*-------------- Testimonial section styling end ---------*/
 
@@ -491,12 +487,6 @@ img
 		width: 100%;
 	}
 
-    .carousel-btn.prev-btn { /* Ajuste para mostrar as setas no desktop */
-        left: 20px;
-    }
-    .carousel-btn.next-btn { /* Ajuste para mostrar as setas no desktop */
-        right: 20px;
-    }
 	.testimonial .container
 	{
 		padding: 1rem 4rem;
