@@ -279,6 +279,7 @@ img
     min-width: 100%;
     box-sizing: border-box;
     display: none; /* Esconde todos por padrão */
+    min-height: 420px; /* Garante que a altura não mude entre os slides */
 }
 
 .review-card.active {
@@ -319,20 +320,21 @@ img
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(2, 77, 248, 0.7);
+    background-color: rgba(2, 77, 248, 0.4); /* Aumentei a transparência */
     color: white;
     border: none;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    font-size: 1.2rem;
+    width: 40px; /* Diminuí o tamanho */
+    height: 40px; /* Diminuí o tamanho */
+    font-size: 1rem; /* Diminuí o ícone */
     cursor: pointer;
     z-index: 10;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .carousel-btn:hover {
-    background-color: var(--primary-color);
+    background-color: rgba(2, 77, 248, 0.8); /* Efeito suave no hover */
+    transform: translateY(-50%) scale(1.1);
 }
 
 .prev-btn {
@@ -489,11 +491,11 @@ img
 		width: 100%;
 	}
 
-    .carousel-btn.prev-btn {
-        left: -50px;
+    .carousel-btn.prev-btn { /* Ajuste para mostrar as setas no desktop */
+        left: 20px;
     }
-    .carousel-btn.next-btn {
-        right: -50px;
+    .carousel-btn.next-btn { /* Ajuste para mostrar as setas no desktop */
+        right: 20px;
     }
 	.testimonial .container
 	{
