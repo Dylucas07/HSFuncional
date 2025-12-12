@@ -603,7 +603,7 @@ img
 
 /*-------------- Pre-enrollment section styling start ---------*/
 .pre-enrollment {
-	padding: 6rem 1rem; /* Aumentei o padding para dar mais respiro ao card */
+	padding: 3rem 1rem; /* Padding reduzido para encurtar a seção */
 	text-align: center;
 	background-color: #1a1a1a; /* Um tom um pouco mais claro que o fundo principal */
 }
@@ -648,6 +648,7 @@ img
 	align-items: center;
 	gap: 10px;
 	animation: pulse 2s infinite;
+	border-radius: 50px; /* Deixa o botão arredondado */
 }
 
 .btn-enroll i {
