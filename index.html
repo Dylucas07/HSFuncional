@@ -24,12 +24,13 @@
 					<li><a href="#offer">Serviços</a></li>
 					<li><a href="#depoimentos">Depoimentos</a></li>
 					<li><a href="#faq">FAQ</a></li>
-					<!-- CTA para mobile: aparece somente quando o menu estiver aberto -->
-					<li class="mobile-cta"><a href="https://api.whatsapp.com/send?phone=5531973073829&text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20HS%20FUNCIONAL%20E%20HIIT%0A" class="btn btn-header">Junte-se ao HS</a></li>
 				</ul>
 			</nav>
+			<!-- Botões de Ação e Menu Hamburger -->
 			<div class="header-actions">
-				
+				<button class="hamburger-menu" aria-label="Abrir menu" aria-expanded="false">
+					<i class="fa-solid fa-bars"></i>
+				</button>
 			</div>
         </div>
     </header>
@@ -38,7 +39,7 @@
 		<div class="container hero-container">
 			<div class="content hero-content">
 				<h2 class="main-heading">Transforme sua saúde.<span>Vire o seu melhor.</span></h2>
-				<a href="https://api.whatsapp.com/send?phone=5531973073829&text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20HS%20FUNCIONAL%20E%20HIIT%0A" class="btn btn-join">Junte-se a Nós</a>
+				<a href="https://api.whatsapp.com/send?phone=5531973073829&text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20HS%20FUNCIONAL%20E%20HIIT%0A" class="btn btn-join">Junte-se ao HS</a>
 			</div>
 		</div>
 	</section>
@@ -392,11 +393,16 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 	const header = document.querySelector('.main-header');
+	const nav = document.querySelector('.main-nav');
 	const hamburger = document.querySelector('.hamburger-menu');
 
 	if (hamburger) {
 		hamburger.addEventListener('click', function() {
-			header.classList.toggle('open');
+			const isOpen = nav.classList.toggle('open');
+			hamburger.setAttribute('aria-expanded', isOpen);
+			// Troca o ícone do hamburger para um "X" quando o menu está aberto
+			hamburger.querySelector('i').classList.toggle('fa-bars', !isOpen);
+			hamburger.querySelector('i').classList.toggle('fa-xmark', isOpen);
 		});
 	}
 

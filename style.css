@@ -71,7 +71,7 @@ a {
 }
 
 .header-logo {
-	width: 140px;
+	width: 160px; /* Aumentei o tamanho do logo */
 	height: auto;
 	display: block;
 }
@@ -79,7 +79,6 @@ a {
 .main-nav .nav-links {
 	list-style: none;
 	display: flex;
-	gap: 1rem;
 	align-items: center;
 	flex-wrap: nowrap; /* evita que os links quebrem linha */
 	white-space: nowrap;
@@ -149,8 +148,7 @@ a {
 .main-nav {
 	flex: 1 1 auto;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-end; /* Alinha os links à direita, próximo ao botão */
 	min-width: 0; /* permite encolher sem causar overflow */
 }
 .main-nav .nav-links li {
@@ -165,70 +163,44 @@ a {
 .hamburger-menu { display: none; }
 
 @media (max-width: 768px) {
-	.main-nav .nav-links { display: none; }
-	.hamburger-menu { display: inline-flex; background: none; border: none; color: var(--third-color); font-size: 1.25rem; }
-
-	/* Mobile opened menu (toggle via JS adding .open on header) */
-	.main-header.open .main-nav .nav-links {
-		display: flex;
-		flex-direction: column;
-		position: absolute;
-		right: 1rem;
-		top: 100%;
-		background: rgba(10,10,10,0.95);
-		padding: 0.75rem;
-		border-radius: 8px;
-		gap: 0.5rem;
-		min-width: 160px;
-		box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-		z-index: 999;
+	/* Esconde o botão "Junte-se" do desktop em telas menores */
+	.desktop-cta {
 	}
 
-	.main-header.open .main-nav .nav-links a {
-		padding: 0.6rem 0.8rem;
-		color: var(--third-color);
-	}
-
-	/* botão original do header escondido em telas pequenas (usamos versão no menu) */
-	.btn-header {
-		display: none;
-	}
-
-	/* controlamos o botão visível apenas dentro do menu mobile */
-	.mobile-only {
-		display: none;
-	}
-
-	/* quando o menu estiver aberto, mostrar o join dentro da lista */
-	.main-header.open .main-nav .nav-links .mobile-only {
-		display: block;
-		background: var(--primary-color);
-		color: var(--third-color);
-		padding: 0.6rem 0.9rem;
-		border-radius: 8px;
-		text-align: center;
-	}
-
-	/* mobile-cta: escondido por padrão, aparece quando o menu está aberto */
-	.main-nav .nav-links .mobile-cta { display: none; }
-	.main-header.open .main-nav .nav-links .mobile-cta {
-		display: block;
-		background: var(--primary-color);
-		color: var(--third-color);
-		padding: 0.6rem 0.9rem;
-		border-radius: 8px;
-		text-align: center;
-	}
-
-	/* evita que o ícone do hamburger fique muito próximo ao texto */
+	/* Mostra e estiliza o botão hamburger em telas menores */
 	.hamburger-menu {
-		font-size: 1.3rem;
-		padding: 0.4rem 0.6rem;
-		margin-left: 0.25rem;
+		display: inline-flex;
 		background: none;
 		border: none;
 		color: var(--third-color);
+		font-size: 1.5rem;
+		cursor: pointer;
+		padding: 0.25rem;
 	}
+
+	/* Esconde a navegação por padrão no mobile */
+	.main-nav .nav-links {
+		display: none;
+		position: absolute;
+		top: calc(100% + 10px); /* Posiciona abaixo do header com um pequeno espaço */
+		right: 1rem;
+		background: rgba(10, 10, 10, 0.95);
+		backdrop-filter: blur(5px);
+		padding: 1rem;
+		border-radius: 8px;
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+		min-width: 200px;
+		z-index: 1000;
+	}
+
+	/* Mostra a navegação quando a classe .open é adicionada pelo JS */
+	.main-nav.open .nav-links {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch; /* Faz os itens ocuparem a largura total */
+		gap: 0.75rem;
+	}
+
 }
 
 .logo-container {
