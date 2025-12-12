@@ -596,7 +596,125 @@ img
 }
 
 
-/*-------------- Testimonial section styling start ---------*/
+/*-------------- Trainer section styling start ---------*/
+.trainer {
+	padding: 3rem 0;
+	background-color: var(--secondry-color);
+}
+
+.trainer .container {
+	padding: 2rem 1rem;
+}
+
+.trainer .heading {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.trainer-content {
+	display: flex;
+	align-items: center;
+	gap: 3rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.trainer-image {
+	flex: 1;
+	min-width: 250px;
+	max-width: 350px;
+	display: flex;
+	justify-content: center;
+}
+
+.trainer-photo {
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+	object-fit: cover;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+	transition: transform 0.3s ease;
+}
+
+.trainer-photo:hover {
+	transform: scale(1.05);
+}
+
+.trainer-info {
+	flex: 1;
+	min-width: 280px;
+	max-width: 500px;
+}
+
+.trainer-subtitle {
+	color: var(--primary-color);
+	font-size: 1rem;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	margin-bottom: 0.5rem;
+	text-transform: uppercase;
+}
+
+.trainer-name {
+	color: var(--third-color);
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+}
+
+.trainer-text {
+	margin-bottom: 2rem;
+}
+
+.trainer-text p {
+	margin-bottom: 1.2rem;
+	line-height: 1.7;
+}
+
+.btn-start {
+	display: inline-block;
+	padding: 0.8rem 2.5rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+	font-size: 0.95rem;
+}
+
+.btn-start:hover {
+	transform: translateY(-3px) scale(1.03);
+}
+
+/* Mobile responsivo */
+@media (max-width: 768px) {
+	.trainer-content {
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.trainer-image {
+		max-width: 280px;
+	}
+
+	.trainer-info {
+		max-width: 100%;
+	}
+
+	.trainer-name {
+		font-size: 1.5rem;
+	}
+
+	.trainer-subtitle {
+		font-size: 0.9rem;
+	}
+
+	.trainer-text p {
+		font-size: 0.95rem;
+	}
+}
+
+/*-------------- Trainer section styling end ---------*/
+
+
 .testimonial .container
 {
 	padding: 2rem 1rem;
