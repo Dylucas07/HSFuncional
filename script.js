@@ -138,4 +138,6 @@ document.addEventListener('DOMContentLoaded', function () {
             header.classList.remove('scrolled');
         }
     });
+
 });
+
