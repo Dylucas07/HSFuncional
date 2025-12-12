@@ -163,10 +163,6 @@ a {
 .hamburger-menu { display: none; }
 
 @media (max-width: 768px) {
-	/* Esconde o botão "Junte-se" do desktop em telas menores */
-	.desktop-cta {
-	}
-
 	/* Mostra e estiliza o botão hamburger em telas menores */
 	.hamburger-menu {
 		display: inline-flex;
@@ -203,10 +199,6 @@ a {
 
 }
 
-.logo-container {
-    /* O container agora só segura a imagem, que será posicionada */
-}
-
 .logo {
     width: 250px; /* Tamanho do logo aumentado */
     height: auto; /* Isso mantém a proporção da imagem */
@@ -227,15 +219,24 @@ html
 	font-weight: 400;
 }
 
+html {
+	overflow-x: hidden;
+}
+
 body
 {
 	background-color: var(--secondry-color);
 	font-family: var(--primary-font);
+	overflow-x: hidden;
 }
 
 .container
 {
 	padding: 1rem;
+	overflow-x: hidden;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0 auto;
 }
 
 img
@@ -247,10 +248,10 @@ img
 .heading
 {
 	color: var(--third-color);
-	font-size: 2rem;
+	font-size: 1.3rem;
 	font-weight: 900;
 	font-style: italic;
-	line-height: 1;
+	line-height: 1.2;
 	text-transform: uppercase;
 	margin-bottom: 1.5rem;
 }
@@ -638,11 +639,6 @@ img
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-.review-content
-{
-	/* O conteúdo agora está dentro do review-card */
-}
-
 .review {
     font-style: italic;
     margin-bottom: 1.5rem;
@@ -763,7 +759,13 @@ img
 
 	.heading
 	{
-		font-size: 3.5rem;
+		font-size: 2.5rem;
+	}
+
+	@media (max-width: 768px) {
+		.heading {
+			font-size: 1.5rem;
+		}
 	}
 
 
@@ -903,6 +905,13 @@ img
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+	.accordion-title {
+		padding: 0.75rem;
+		font-size: 0.9rem;
+	}
+}
+
 .accordion-title {
     padding: 10px;
     background-color: transparent;
@@ -910,6 +919,13 @@ img
     cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+@media (max-width: 768px) {
+	.accordion-content {
+		padding: 0.75rem;
+		font-size: 0.85rem;
+	}
 }
 
 .accordion-content {
@@ -961,10 +977,18 @@ img
 }
 
 /*-------------- Pre-enrollment section styling start ---------*/
+@media (max-width: 768px) {
+	.pre-enrollment {
+		padding: 1.5rem 0.5rem;
+		text-align: center;
+		background-color: #1a1a1a;
+	}
+}
+
 .pre-enrollment {
-	padding: 3rem 1rem; /* Padding reduzido para encurtar a seção */
+	padding: 3rem 1rem;
 	text-align: center;
-	background-color: #1a1a1a; /* Um tom um pouco mais claro que o fundo principal */
+	background-color: #1a1a1a;
 }
 
 .pre-enrollment .container {
@@ -985,15 +1009,30 @@ img
 	margin-bottom: 0;
 }
 
+@media (max-width: 768px) {
+	.pre-enrollment-text {
+		font-size: 0.9rem;
+		line-height: 1.4;
+		padding: 0 0.5rem;
+	}
+}
+
 .pre-enrollment-text {
 	font-size: 1.2rem;
 	line-height: 1.6;
-	max-width: 700px; /* Limita a largura do texto para melhor legibilidade */
+	max-width: 700px;
 }
 
 .pre-enrollment-text strong {
 	color: var(--primary-color);
 	font-weight: 700;
+}
+
+@media (max-width: 768px) {
+	.btn-enroll {
+		padding: 0.75rem 1.5rem;
+		font-size: 0.85rem;
+	}
 }
 
 .btn-enroll {
@@ -1002,12 +1041,12 @@ img
 	font-weight: 600;
 	text-transform: uppercase;
 	display: inline-flex;
-	color: var(--third-color); /* Garante que o texto do botão seja branco */
+	color: var(--third-color);
 	text-decoration: none;
 	align-items: center;
 	gap: 10px;
 	animation: pulse 2s infinite;
-	border-radius: 50px; /* Deixa o botão arredondado */
+	border-radius: 50px;
 }
 
 .btn-enroll i {
@@ -1031,6 +1070,15 @@ img
 }
 
 /* Estilos do Relógio de Contagem Regressiva */
+@media (max-width: 768px) {
+	.countdown-timer {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.5rem;
+		margin-top: 1.5rem;
+	}
+}
+
 .countdown-timer {
 	display: flex;
 	justify-content: center;
@@ -1271,3 +1319,183 @@ img
 	}
 }
 /*-------------- Pre-enrollment section styling end ---------*/
+/* ========== MOBILE RESPONSIVE FIX ========== */
+@media (max-width: 768px) {
+	/* Prevenir qualquer overflow horizontal */
+	* {
+		max-width: 100%;
+	}
+
+	/* About section ajustes */
+	.about .container {
+		padding: 1.5rem 1rem;
+	}
+
+	.about .container .row {
+		gap: 1rem;
+	}
+
+	.about-content {
+		width: 100%;
+	}
+
+	.about-img {
+		width: 100%;
+	}
+
+	/* Offer section ajustes */
+	.offer .container {
+		padding: 1.5rem 1rem;
+	}
+
+	.offer-block {
+		margin: 1rem 0;
+	}
+
+	.offer-block .offer-text {
+		padding: 0.75rem;
+		font-size: 0.9rem;
+	}
+
+	.offer-block .offer-title {
+		font-size: 1.1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	/* Testimonial section ajustes */
+	.testimonial .container {
+		padding: 1.5rem 1rem;
+	}
+
+	.review-card {
+		padding: 1rem 0.75rem;
+		min-height: 350px;
+	}
+
+	.author-pic {
+		width: 80px;
+		height: 80px;
+		margin-bottom: 1rem;
+	}
+
+	.review {
+		font-size: 0.9rem;
+		margin-bottom: 1rem;
+	}
+
+	.author-name {
+		font-size: 1rem;
+	}
+
+	.carousel-btn {
+		width: 35px;
+		height: 35px;
+		font-size: 0.9rem;
+		margin: 0 5px;
+	}
+
+	/* Footer ajustes */
+	.footer-bottom .container {
+		padding: 1.5rem 1rem;
+	}
+
+	.footer-bottom .container .row .col {
+		margin: 1rem 0;
+	}
+
+	.contact-heading {
+		font-size: 1rem;
+	}
+
+	.contact-para-line {
+		font-size: 0.85rem;
+	}
+
+	/* Paragraph e texto geral */
+	.para-line {
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
+	.sub-heading {
+		font-size: 1rem;
+	}
+
+	/* FAQs Accordion mobile */
+	.accordion-item {
+		border-radius: 8px;
+		margin-bottom: 0.5rem;
+	}
+
+	.accordion-title strong {
+		font-size: 0.9rem;
+	}
+
+	.faq-answer {
+		font-size: 0.85rem;
+		line-height: 1.5;
+	}
+
+	/* Hero section */
+	.hero {
+		min-height: 50vh;
+		padding-top: var(--header-height);
+	}
+
+	.btn-join {
+		padding: 0.6rem 1rem;
+		font-size: 0.85rem;
+	}
+
+	/* Ajuste da margem vertical */
+	.heading {
+		margin-bottom: 1rem;
+	}
+
+	.sub-heading {
+		margin-bottom: 1.5rem;
+	}
+}
+
+/* Extra small devices (< 480px) */
+@media (max-width: 480px) {
+	.heading {
+		font-size: 1.2rem;
+	}
+
+	.pre-enrollment-text {
+		font-size: 0.85rem;
+	}
+
+	.main-heading {
+		font-size: clamp(0.95rem, 7vw, 1.8rem);
+		line-height: 1.1;
+	}
+
+	.btn-enroll {
+		padding: 0.6rem 1.2rem;
+		font-size: 0.75rem;
+	}
+
+	.btn-enroll i {
+		font-size: 0.9rem;
+	}
+
+	.timer-box {
+		min-width: 50px;
+		padding: 6px 8px;
+	}
+
+	.timer-number {
+		font-size: 1.5rem;
+	}
+
+	.review-card {
+		padding: 0.75rem;
+		min-height: 300px;
+	}
+
+	.contact-heading {
+		font-size: 0.9rem;
+	}
+}
