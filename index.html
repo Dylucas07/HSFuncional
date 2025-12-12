@@ -192,28 +192,28 @@
 				<div class="accordion-item">
 					<div class="accordion-title white"><strong>Quais são os benefícios do Funcional e HIIT?</strong></div>
 					<div class="accordion-content">
-						<p id="paragrafoAcesso">Os benefícios do treino Funcional e HIIT incluem a melhora da resistência e força, a queima eficiente de calorias, um treino adaptável para todos os níveis de condicionamento, e o aumento da agilidade e coordenação.</p>
+						<p class="faq-answer">Os benefícios do treino Funcional e HIIT incluem a melhora da resistência e força, a queima eficiente de calorias, um treino adaptável para todos os níveis de condicionamento, e o aumento da agilidade e coordenação.</p>
 					</div>
 				</div>
 				<!-- ... -->
 				<div class="accordion-item">
 					<div class="accordion-title white"><strong>Quais são os horários de funcionamento?</strong></div>
 					<div class="accordion-content">
-						<p id="paragrafoAcesso">Os horários para as atividades são às segundas, quartas e sextas-feiras nos seguintes horários: 06h, 18:30h e 19:30h.</p>
+						<p class="faq-answer">Os horários para as atividades são às segundas, quartas e sextas-feiras nos seguintes horários: 06h, 18:30h e 19:30h.</p>
 					</div>
 				</div>
 				<!-- ... -->
 				<div class="accordion-item">
 					<div class="accordion-title white"><strong>Posso fazer uma aula experimental?</strong></div>
 					<div class="accordion-content">
-						<p id="paragrafoAcesso">Claro! Fico ansioso para recebê-lo(a) em uma aula experimental. <br> Por favor, avise-me quando estiver pronto(a) para que eu possa verificar as vagas disponíveis e organizar sua participação. Aguardo seu contato!</p>
+						<p class="faq-answer">Claro! Fico ansioso para recebê-lo(a) em uma aula experimental. <br> Por favor, avise-me quando estiver pronto(a) para que eu possa verificar as vagas disponíveis e organizar sua participação. Aguardo seu contato!</p>
 					</div>
 				</div>
 				<!-- ... -->
 				<div class="accordion-item">
 					<div class="accordion-title white"><strong>Qual forma de pagamento vocês aceitam?</strong></div>
 					<div class="accordion-content">
-						<p id="paragrafoAcesso">Em relação aos pagamento, aceitamos via Pix ou em espécie, você escolhe a opção que seja mais cômoda para você. <br> 
+						<p class="faq-answer">Em relação aos pagamento, aceitamos via Pix ou em espécie, você escolhe a opção que seja mais cômoda para você. <br> 
 							Caso tenha alguma dúvida ou precise de mais informações, entre em contato que estaremos a disposição para ajudar.
 						</p>
 					</div>
@@ -259,163 +259,14 @@
 			</div>
 		</div>
 		<div class="footer-credit">
-			<a href="https://www.instagram.com/avix_infinity/?hl=en" target="_blank">Site criado por AVIX INFINITY</a>
+			Copyright © 2025 <a href="https://www.instagram.com/avix_infinity/?hl=en" target="_blank">AVIX INFINITY</a>. All Rights Reserved.
 		</div>
 	</footer>
 
 	<!-- Botão Voltar ao Topo -->
 	<a id="back-to-top" href="#" class="back-to-top-btn"><i class="fa-solid fa-arrow-up"></i></a>
 
-	<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const accordionItems = document.querySelectorAll('.accordion-item');
-
-        accordionItems.forEach(item => {
-            const title = item.querySelector('.accordion-title');
-            title.addEventListener('click', () => {
-                const currentlyActive = document.querySelector('.accordion-item.active');
-
-                // Se houver um item ativo e não for o que foi clicado, remove a classe 'active'
-                if (currentlyActive && currentlyActive !== item) {
-                    currentlyActive.classList.remove('active');
-                }
-
-                // Adiciona ou remove a classe 'active' do item clicado
-                item.classList.toggle('active');
-            });
-        });
-    });
-</script>
-<script>
-	// --- SCRIPT DO RELÓGIO DE CONTAGEM REGRESSIVA ---
-
-	// Defina a data final da sua promoção aqui
-	// Formato: Mês Dia, Ano HH:MM:SS
-	// Exemplo: "Mar 1, 2026 00:00:00"
-	const countDownDate = new Date("Mar 1, 2026 00:00:00").getTime();
-
-	// Atualiza o relógio a cada 1 segundo
-	const x = setInterval(function() {
-
-		// Pega a data e hora de hoje
-		const now = new Date().getTime();
-
-		// Encontra a distância entre agora e a data final
-		const distance = countDownDate - now;
-
-		// Cálculos de tempo para dias, horas, minutos e segundos
-		const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-		// Mostra o resultado nos elementos com os IDs correspondentes
-		document.getElementById("days").innerText = String(days).padStart(2, '0');
-		document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-		document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-		document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
-
-		// Se a contagem acabar, mostra uma mensagem
-		if (distance < 0) {
-			clearInterval(x);
-			document.getElementById("countdown").innerHTML = "<div class='countdown-expired'>OFERTA ENCERRADA</div>";
-			// Opcional: você pode desabilitar o botão aqui também
-			document.querySelector('.btn-enroll').style.pointerEvents = 'none';
-			document.querySelector('.btn-enroll').style.opacity = '0.5';
-		}
-	}, 1000);
-</script>
-<script>
-	// --- SCRIPT PARA ANIMAÇÃO DE SCROLL (FADE-IN) ---
-	const fadeInElements = document.querySelectorAll('.fade-in');
-
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				entry.target.classList.add('visible');
-				observer.unobserve(entry.target); // Opcional: para a animação acontecer só uma vez
-			}
-		});
-	}, {
-		threshold: 0.1 // A animação começa quando 10% do elemento está visível
-	});
-
-	fadeInElements.forEach(el => {
-		observer.observe(el);
-	});
-
-	// --- SCRIPT PARA BOTÃO "VOLTAR AO TOPO" ---
-	const backToTopButton = document.getElementById('back-to-top');
-
-	window.onscroll = function() {
-		if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-			backToTopButton.style.display = "flex";
-		} else {
-			backToTopButton.style.display = "none";
-		}
-	};
-
-	backToTopButton.addEventListener('click', () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	});
-
-	// --- SCRIPT PARA O CARROSSEL DE DEPOIMENTOS ---
-	document.addEventListener('DOMContentLoaded', function () {
-		const slides = document.querySelectorAll('.testimonial-carousel .review-card');
-		const nextBtn = document.querySelector('.next-btn');
-		const prevBtn = document.querySelector('.prev-btn');
-		let currentSlide = 0;
-
-		function showSlide(index) {
-			// Esconde todos os slides
-			slides.forEach((slide, i) => {
-				slide.classList.remove('active');
-			});
-			// Mostra apenas o slide atual
-			slides[index].classList.add('active');
-		}
-
-		nextBtn.addEventListener('click', () => {
-			currentSlide = (currentSlide + 1) % slides.length;
-			showSlide(currentSlide);
-		});
-
-		prevBtn.addEventListener('click', () => {
-			currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-			showSlide(currentSlide);
-		});
-
-		showSlide(currentSlide); // Mostra o primeiro slide inicialmente
-	});
-</script>
-
-<!-- Script para toggle do menu mobile e efeito de scroll no header -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-	const header = document.querySelector('.main-header');
-	const nav = document.querySelector('.main-nav');
-	const hamburger = document.querySelector('.hamburger-menu');
-
-	if (hamburger) {
-		hamburger.addEventListener('click', function() {
-			const isOpen = nav.classList.toggle('open');
-			hamburger.setAttribute('aria-expanded', isOpen);
-			// Troca o ícone do hamburger para um "X" quando o menu está aberto
-			hamburger.querySelector('i').classList.toggle('fa-bars', !isOpen);
-			hamburger.querySelector('i').classList.toggle('fa-xmark', isOpen);
-		});
-	}
-
-	// Adiciona classe quando rolar para aplicar fundo sólido
-	window.addEventListener('scroll', function() {
-		if (window.scrollY > 40) {
-			header.classList.add('scrolled');
-		} else {
-			header.classList.remove('scrolled');
-		}
-	});
-});
-</script>
+	<script src="script.js" defer></script>
 
 </body>
 </html>
