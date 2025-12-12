@@ -47,21 +47,14 @@ a {
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
+    /* O container agora só segura a imagem, que será posicionada */
 }
 
 .logo {
-    width: 150px; /* Defina o tamanho desejado para a logo */
+    width: 250px; /* Tamanho do logo aumentado */
     height: auto; /* Isso mantém a proporção da imagem */
 }
 
-.logo-text {
-    font-size: 24px; /* Defina o tamanho da fonte desejado para o texto do logo */
-    font-weight: bold; /* Defina o estilo da fonte desejado */
-    margin-left: 10px; /* Ajuste a margem à direita do logo, se necessário */
-	color: #FFFFFF;
-}
 
 
 *
@@ -118,6 +111,13 @@ img
 	background-image: url(img/hero-bg.jpg);
 	background-position: top center;
 	background-size: cover;
+	position: relative; /* Necessário para o posicionamento absoluto do logo */
+}
+
+.hero .logo-container {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
 }
 
 .logo
@@ -749,14 +749,10 @@ img
 
 /* Estilos Mobile que foram movidos do HTML */
 @media (max-width: 768px) {
-	.hero .container, .logo-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
-	.logo-container {
-		margin-bottom: 20px;
+	.hero .logo-container {
+		/* Garante que o logo fique no canto também no mobile */
+		top: 1rem;
+		left: 1rem;
 	}
 	.countdown-timer {
 		gap: 10px;
@@ -814,14 +810,10 @@ img
 
 /* Estilos Mobile que foram movidos do HTML */
 @media (max-width: 768px) {
-	.hero .container, .logo-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
-	.logo-container {
-		margin-bottom: 20px;
+	.hero .logo-container {
+		/* Garante que o logo fique no canto também no mobile */
+		top: 1rem;
+		left: 1rem;
 	}
 	.countdown-timer {
 		gap: 10px;
