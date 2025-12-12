@@ -42,7 +42,7 @@ a {
 	--primary-font: 'Poppins', sans-serif;
 
 	/* Altura estimada do header usada para espaçamento do hero */
-	--header-height: 80px;
+	--header-height: 96px;
 
 	--primary-color: #024df8;   /*--- Cor de destaque (Azul) ----*/
 	--secondry-color: #202020;  /*--- Cor de fundo (Cinza escuro) ----*/
@@ -139,10 +139,41 @@ a {
 		gap: 0.5rem;
 		min-width: 160px;
 		box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+		z-index: 999;
 	}
 
 	.main-header.open .main-nav .nav-links a {
 		padding: 0.6rem 0.8rem;
+		color: var(--third-color);
+	}
+
+	/* botão original do header escondido em telas pequenas (usamos versão no menu) */
+	.btn-header {
+		display: none;
+	}
+
+	/* controlamos o botão visível apenas dentro do menu mobile */
+	.mobile-only {
+		display: none;
+	}
+
+	/* quando o menu estiver aberto, mostrar o join dentro da lista */
+	.main-header.open .main-nav .nav-links .mobile-only {
+		display: block;
+		background: var(--primary-color);
+		color: var(--third-color);
+		padding: 0.6rem 0.9rem;
+		border-radius: 8px;
+		text-align: center;
+	}
+
+	/* evita que o ícone do hamburger fique muito próximo ao texto */
+	.hamburger-menu {
+		font-size: 1.3rem;
+		padding: 0.4rem 0.6rem;
+		margin-left: 0.25rem;
+		background: none;
+		border: none;
 		color: var(--third-color);
 	}
 }
@@ -211,16 +242,22 @@ img
 	min-height: 70vh;
 	position: relative; /* Necessário para posicionamento do logo e pseudo-elemento */
 	overflow: hidden;
+	padding-top: calc(var(--header-height) + 1rem); /* garante que o conteúdo comece abaixo do header fixo */
+	display: flex;
+	align-items: center;
 }
 
 .hero::before {
-	content: '';
+	display: none;
+}
+
+/* background element inside hero (markup: .hero-bg) */
+.hero-bg {
 	position: absolute;
-	/* começa abaixo do menu para não cobrir a área do topo */
-	top: calc(var(--header-height) + 10px);
+	top: 0;
 	left: 0;
-	width: 50%;
-	height: calc(100% - (var(--header-height) + 10px));
+	width: 100%;
+	height: 100%;
 	background-image: url(img/hero-bg.jpg);
 	background-position: center center;
 	background-size: cover;
@@ -264,7 +301,6 @@ img
 	min-height: 70vh;
 	position: relative;
 	z-index: 2;
-	padding-top: calc(var(--header-height) + 1rem); /* empurra conteúdo para baixo, evitando sobreposição com o menu */
 }
 
 .main-heading
@@ -286,7 +322,7 @@ img
 
 /* Mobile: tornar o background full-width e posicionar o texto sobre a imagem */
 @media (max-width: 768px) {
-	.hero::before {
+	.hero-bg {
 		width: 100%;
 	}
 
@@ -671,6 +707,20 @@ img
 	color: var(--third-color);
 }
 /*------------ copyright styling end -------------*/
+
+/* Crédito no footer */
+.footer-credit {
+	text-align: center;
+	padding: 1rem 0 2rem 0;
+}
+.footer-credit a {
+	color: var(--third-color);
+	text-decoration: none;
+	font-weight: 700;
+}
+.footer-credit a:hover {
+	color: var(--primary-color);
+}
 
 
 /*------------------------------------------------------------*/
