@@ -13,16 +13,31 @@
 
 </head>
 <body>
+	<header class="main-header">
+		<div class="container">
+			<a href="#" class="header-logo-link">
+				<img src="img/logo.png.png" alt="Logo HS GYM" class="header-logo">
+			</a>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#offer">Serviços</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="https://api.whatsapp.com/send?phone=5531973073829&text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20HS%20FUNCIONAL%20E%20HIIT%0A" class="btn btn-header">Junte-se ao HS</a>
+                <button class="hamburger-menu" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
     <section class="hero">
         <div class="container">
-            <div class="logo-container">
-                <img src="img/logo.png.png" alt="Logo da HS GYM" class="logo">
-            </div>
-            <div class="content">: 
+			<!-- logo removido do hero (usamos apenas a do header) -->
+            <div class="content"> 
                 <h2 class="main-heading">Transforme sua saúde.<span>Vire o seu melhor.</span></h2>
-                <button class="btn">
-                    <a href="https://api.whatsapp.com/send?phone=5531973073829&text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20HS%20FUNCIONAL%20E%20HIIT%0A">Junte-se a Nós</a>
-                </button>
+                <a href="https://api.whatsapp.com/send?phone=5531973073829&text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20HS%20FUNCIONAL%20E%20HIIT%0A" class="btn">Junte-se a Nós</a>
             </div>
         </div>
     </section>
@@ -62,7 +77,7 @@
 		</div>
 	</section>
 
-	<section class="about fade-in">
+	<section id="about" class="about fade-in">
 		<div class="container">
 			<div class="row">
 				<div class="col about-content">
@@ -79,7 +94,7 @@
 		</div>
 	</section>
 
-	<section class="offer fade-in">
+	<section id="offer" class="offer fade-in">
 		<div class="container">
 			<h2 class="heading">VENHA FAZER PARTE DESSE TIME</h2>
 			<p class="sub-heading white">
@@ -123,7 +138,7 @@
 	</section>
 
 
-	<section class="testimonial fade-in">
+	<section id="depoimentos" class="testimonial fade-in">
 		<div class="container">
 			<h2 class="heading">
 				FEEDBACKS/DEPOIMENTOS
@@ -164,7 +179,7 @@
 		</div>
 	</section>
 <br>
-	<section class="testimonial fade-in">
+	<section id="faq" class="testimonial fade-in">
 		<div class="container">
 			<h2 class="heading">
 				<strong>PERGUNTAS FREQUENTES</strong>
@@ -367,6 +382,29 @@
 
 		showSlide(currentSlide); // Mostra o primeiro slide inicialmente
 	});
+</script>
+
+<!-- Script para toggle do menu mobile e efeito de scroll no header -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	const header = document.querySelector('.main-header');
+	const hamburger = document.querySelector('.hamburger-menu');
+
+	if (hamburger) {
+		hamburger.addEventListener('click', function() {
+			header.classList.toggle('open');
+		});
+	}
+
+	// Adiciona classe quando rolar para aplicar fundo sólido
+	window.addEventListener('scroll', function() {
+		if (window.scrollY > 40) {
+			header.classList.add('scrolled');
+		} else {
+			header.classList.remove('scrolled');
+		}
+	});
+});
 </script>
 
 </body>

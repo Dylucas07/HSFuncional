@@ -41,9 +41,110 @@ a {
 {
 	--primary-font: 'Poppins', sans-serif;
 
+	/* Altura estimada do header usada para espaçamento do hero */
+	--header-height: 80px;
+
 	--primary-color: #024df8;   /*--- Cor de destaque (Azul) ----*/
 	--secondry-color: #202020;  /*--- Cor de fundo (Cinza escuro) ----*/
 	--third-color: #ffffff;     /*--- Cor do texto (Branco) ----*/
+}
+
+/* Header / menu styles */
+.main-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	background: rgba(0,0,0,0.25);
+	backdrop-filter: blur(6px);
+	transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.main-header .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 1rem;
+}
+
+.header-logo {
+	width: 140px;
+	height: auto;
+	display: block;
+}
+
+.main-nav .nav-links {
+	list-style: none;
+	display: flex;
+	gap: 1.25rem;
+}
+
+.main-nav .nav-links a {
+	color: var(--third-color);
+	text-decoration: none;
+	padding: 0.25rem 0.5rem;
+}
+
+.main-nav .nav-links a {
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	padding: 0.6rem 0.9rem;
+	border-radius: 8px;
+	transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+
+.main-nav .nav-links a:hover {
+	background: rgba(2,77,248,0.12);
+	color: var(--primary-color);
+	transform: translateY(-2px);
+}
+
+.btn-header {
+	border-radius: 999px;
+	padding: 0.6rem 1rem;
+}
+
+/* Header when scrolled */
+.main-header.scrolled {
+	background: rgba(0,0,0,0.9);
+	box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+	transform: translateY(0);
+}
+
+.header-actions {
+	display: flex;
+	gap: 0.75rem;
+	align-items: center;
+}
+
+/* Hide hamburger on desktop */
+.hamburger-menu { display: none; }
+
+@media (max-width: 768px) {
+	.main-nav .nav-links { display: none; }
+	.hamburger-menu { display: inline-flex; background: none; border: none; color: var(--third-color); font-size: 1.25rem; }
+
+	/* Mobile opened menu (toggle via JS adding .open on header) */
+	.main-header.open .main-nav .nav-links {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		right: 1rem;
+		top: 100%;
+		background: rgba(10,10,10,0.95);
+		padding: 0.75rem;
+		border-radius: 8px;
+		gap: 0.5rem;
+		min-width: 160px;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+	}
+
+	.main-header.open .main-nav .nav-links a {
+		padding: 0.6rem 0.8rem;
+		color: var(--third-color);
+	}
 }
 
 .logo-container {
@@ -107,17 +208,30 @@ img
 /*-------------- Hero styling starts ------------*/
 .hero
 {
-	height: 100vh;
+	min-height: 70vh;
+	position: relative; /* Necessário para posicionamento do logo e pseudo-elemento */
+	overflow: hidden;
+}
+
+.hero::before {
+	content: '';
+	position: absolute;
+	/* começa abaixo do menu para não cobrir a área do topo */
+	top: calc(var(--header-height) + 10px);
+	left: 0;
+	width: 50%;
+	height: calc(100% - (var(--header-height) + 10px));
 	background-image: url(img/hero-bg.jpg);
-	background-position: top center;
+	background-position: center center;
 	background-size: cover;
-	position: relative; /* Necessário para o posicionamento absoluto do logo */
+	z-index: 0;
 }
 
 .hero .logo-container {
 	position: absolute;
 	top: 1rem;
 	left: 1rem;
+	z-index: 3;
 }
 
 .logo
@@ -128,20 +242,79 @@ img
 
 .content
 {
-	height: 90vh;
+	/* Conteúdo do hero: coluna direita no desktop (texto) */
+	height: auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: flex-start;
+	width: 45%;
+	padding: 1rem 2rem;
+	text-align: left;
+	z-index: 2;
+}
+
+/* Centraliza o bloco do hero e cria layout com duas colunas */
+.hero .container {
+	display: flex;
+	/* posiciona o bloco à direita (texto) e deixa a imagem na esquerda */
+	justify-content: flex-end;
 	align-items: center;
+	gap: 2rem;
+	min-height: 70vh;
+	position: relative;
+	z-index: 2;
+	padding-top: calc(var(--header-height) + 1rem); /* empurra conteúdo para baixo, evitando sobreposição com o menu */
 }
 
 .main-heading
 {
 	color: var(--third-color);
-	font-size: 2.5rem;
-	font-weight: 900;
+	/* Título principal com largura limitada para evitar que ocupe toda a tela */
+	font-size: clamp(1.6rem, 2.6vw, 2.6rem);
+	font-weight: 800;
 	font-style: italic;
 	text-transform: uppercase;
+	max-width: 42rem; /* similar ao bloco de texto das seções */
+	line-height: 1.18;
+	overflow-wrap: break-word;
+	word-break: break-word;
+	white-space: normal;
+	text-align: left;
+	margin-bottom: 1rem;
+}
+
+/* Mobile: tornar o background full-width e posicionar o texto sobre a imagem */
+@media (max-width: 768px) {
+	.hero::before {
+		width: 100%;
+	}
+
+	.hero .container {
+		flex-direction: column;
+		padding: 1rem;
+		align-items: center;
+		text-align: center;
+	}
+
+	.content {
+		width: 100%;
+		align-items: center;
+		text-align: center;
+		position: relative;
+		color: var(--third-color);
+		z-index: 3;
+		margin-top: 0; /* remove recuo negativo para não esconder o texto sob o menu */
+		padding-top: 1rem;
+	}
+
+	.main-heading {
+		font-size: clamp(1.4rem, 8vw, 2.8rem);
+	}
+
+	.btn {
+		margin-top: 1rem;
+	}
 }
 
 .main-heading span
@@ -157,6 +330,15 @@ img
 	outline: none;
 	padding: 0.8rem 2rem;
 	transition: .5s;
+}
+
+/* Arredonda botões globais */
+.btn, .btn-enroll, .back-to-top-btn, .btn-link {
+	border-radius: 50px;
+}
+
+.btn-enroll {
+	border-radius: 50px;
 }
 
 .btn:hover
@@ -251,6 +433,103 @@ img
 	text-align: center;
 }
 /*-------------- Offer section styling end -----------*/
+
+/* Layout for offer blocks: alternating image/text on desktop, overlay on mobile */
+.offer-block {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 2rem;
+	margin: 2.5rem 0;
+	position: relative;
+}
+
+.offer-block .offer-text,
+.offer-block .offer-image {
+	width: 50%;
+}
+
+.offer-block .offer-text {
+	padding: 1rem 2rem;
+}
+
+.offer-block .offer-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	border-radius: 12px;
+}
+
+/* Estilo para o título dentro dos blocos de oferta */
+.offer-block .offer-title {
+	color: var(--primary-color); /* Define a cor do título para o azul principal */
+	font-size: 1.8rem;
+	font-weight: 800;
+	margin-bottom: 1rem;
+}
+
+/* Inverter ordem quando usar .reverse */
+.offer-block.reverse {
+	flex-direction: row-reverse;
+}
+
+/* Ajustes para telas médias (notebooks) */
+@media (max-width: 1400px) and (min-width: 769px) {
+	.offer-block {
+		gap: 1.5rem;
+	}
+	.offer-block .offer-text {
+		padding: 1rem;
+	}
+}
+
+/* Mobile: imagem full-width e texto sobreposto */
+@media (max-width: 768px) {
+	.offer-block {
+		display: block;
+		margin: 1.5rem 0;
+	}
+
+	.offer-block .offer-image {
+		width: 100%;
+		height: auto;
+	}
+
+	.offer-block .offer-image img {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+	}
+
+	/* Texto sobre a imagem */
+	.offer-block .offer-text {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 12%;
+		width: calc(100% - 2rem);
+		background: rgba(0,0,0,0.55);
+		color: var(--third-color);
+		padding: 1rem;
+		border-radius: 10px;
+		box-sizing: border-box;
+		z-index: 5;
+		text-align: center;
+	}
+
+	/* Garante que o bloco tenha espaço para o overlay (altura da imagem) */
+	.offer-block .offer-image {
+		display: block;
+	}
+
+	/* Reduce heading size slightly on mobile overlay */
+	.offer-block .offer-title {
+		font-size: 1.25rem;
+		margin-bottom: 0.5rem;
+	}
+
+}
 
 
 /*-------------- Testimonial section styling start ---------*/
@@ -425,8 +704,11 @@ img
 
 	.main-heading
 	{
-		font-size: 6.5rem;
+		/* Ajuste para desktop: mantém responsivo, mas evita tamanho exagerado/overflow */
+		font-size: clamp(2.6rem, 4.8vw, 5rem);
 		font-weight: 800;
+		white-space: normal;
+		max-width: 55ch; /* evita linhas muito longas */
 	}
 
 	.btn a
@@ -766,6 +1048,88 @@ img
 	}
 	.timer-label {
 		font-size: 0.7rem;
+	}
+}
+/* Correção: evita que o título exceda a largura da tela em dispositivos menores */
+@media (max-width: 992px) {
+	.main-heading {
+		white-space: normal; /* permite quebra quando necessário */
+		word-break: break-word;
+		overflow-wrap: break-word;
+		/* reduz ainda mais o tamanho em telas pequenas para caber na largura */
+		font-size: clamp(1.2rem, 8vw, 3.8rem);
+		max-width: 100%;
+		padding: 0 0.5rem;
+		box-sizing: border-box;
+		text-align: center;
+	}
+
+	.content {
+		padding: 0 0.5rem;
+	}
+}
+
+/* Ajustes adicionais para pontos de corte maiores/menores */
+@media (max-width: 1200px) {
+	.main-heading {
+		font-size: clamp(1.4rem, 5.7vw, 5.2rem);
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	.main-heading {
+		font-size: clamp(1rem, 9.5vw, 2.2rem);
+		white-space: normal;
+		word-break: break-word;
+		overflow-wrap: break-word;
+		line-height: 1.05;
+		max-width: 100%;
+		padding: 0 0.75rem;
+	}
+	.btn a { font-size: 0.9rem; }
+}
+
+/* Evita qualquer overflow horizontal causado pelo hero */
+.hero {
+	overflow: hidden;
+}
+
+/* Ajuste específico para notebooks (telas médias/largas comuns em notebooks) */
+@media (min-width: 992px) and (max-width: 1400px) {
+	.main-heading {
+		/* Limita o tamanho em laptops para evitar que o texto saia da tela */
+		font-size: clamp(1.6rem, 3.2vw, 3.2rem);
+		line-height: 1.02;
+		max-width: 100%;
+		padding: 0 1rem;
+		box-sizing: border-box;
+		word-break: break-word;
+		overflow-wrap: break-word;
+		display: block;
+	}
+
+	.container {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}
+
+/* Força o conteúdo do <span> para a próxima linha em telas menores de notebook, evitando overflow */
+@media (max-width: 1400px) {
+	.main-heading span {
+		display: inline; /* não forçar quebra do span */
+		font-size: 0.95em;
+		line-height: 1.02;
+	}
+
+	.main-heading {
+		max-width: 100%;
+		overflow: visible; /* permitir quebra natural */
+	}
+
+	.content {
+		align-items: center;
 	}
 }
 /*-------------- Pre-enrollment section styling end ---------*/
