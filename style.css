@@ -738,12 +738,12 @@ img
 /* Crédito no footer */
 .footer-credit {
 	text-align: center;
-	padding: 1rem 0 2rem 0;
+	padding: 1rem 0 2rem;
+	color: var(--third-color); /* Garante que todo o texto seja branco */
 }
 .footer-credit a {
 	color: var(--third-color);
 	text-decoration: none;
-	font-weight: 700;
 }
 .footer-credit a:hover {
 	color: var(--primary-color);
