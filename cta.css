@@ -418,6 +418,65 @@ details p {
   z-index: 20;
 }
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 10, 14, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 40;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal {
+  background: #0f1721;
+  border: 1px solid rgba(90, 163, 255, 0.25);
+  border-radius: 18px;
+  padding: 2rem;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: var(--shadow);
+  position: relative;
+  text-align: center;
+}
+
+.modal h3 {
+  font-family: 'Sora', sans-serif;
+  margin-bottom: 0.75rem;
+}
+
+.modal p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.modal-actions .btn {
+  flex: 1 1 200px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 @media (min-width: 900px) {
   .sticky-cta {
     display: none;

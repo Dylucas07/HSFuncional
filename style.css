@@ -1206,6 +1206,10 @@ img
     transition: max-height 0.3s ease-out;
 }
 
+.faq-answer {
+	color: var(--third-color);
+}
+
 /* Define a altura máxima para o conteúdo quando está ativo */
 .accordion-item.active .accordion-content {
     max-height: 500px; /* Ajuste conforme necessário */
@@ -1720,6 +1724,7 @@ img
 	.faq-answer {
 		font-size: 0.85rem;
 		line-height: 1.5;
+		color: var(--third-color);
 	}
 
 	/* Hero section */

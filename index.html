@@ -21,7 +21,7 @@
         </a>
         <nav class="top-actions">
           <a class="btn btn-ghost" href="#planos">Planos</a>
-          <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">
+          <a class="btn btn-primary js-enroll" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">
             Fazer matrícula
           </a>
         </nav>
@@ -42,7 +42,7 @@
               motivador e acompanhamento de verdade. Sem complicação, sem enrolação.
             </p>
             <div class="hero-cta">
-              <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">
+              <a class="btn btn-primary js-enroll" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">
                 Garantir minha vaga
               </a>
               <span class="mini-note">Matrícula rápida. Vagas limitadas por turma.</span>
@@ -123,7 +123,7 @@
                 <li>Treino orientado</li>
                 <li>Plano sob medida</li>
               </ul>
-              <a class="btn btn-outline" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
+              <a class="btn btn-outline js-enroll" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
             </article>
             <article class="plan featured">
               <div class="tag">Mais escolhido</div>
@@ -133,7 +133,7 @@
                 <li>Treinos variados</li>
                 <li>Acompanhamento constante</li>
               </ul>
-              <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
+              <a class="btn btn-primary js-enroll" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
             </article>
             <article class="plan">
               <h3>Plano Anual</h3>
@@ -142,7 +142,7 @@
                 <li>Foco total em resultado</li>
                 <li>Suporte prioritário</li>
               </ul>
-              <a class="btn btn-outline" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
+              <a class="btn btn-outline js-enroll" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
             </article>
           </div>
         </div>
@@ -188,7 +188,7 @@
               <li>Correção técnica a cada exercício</li>
               <li>Foco total no seu objetivo</li>
             </ul>
-            <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
+            <a class="btn btn-primary js-enroll" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
           </div>
         </div>
       </section>
@@ -230,7 +230,7 @@
             </p>
           </div>
           <div class="cta-buttons">
-            <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Quero me matricular</a>
+            <a class="btn btn-primary js-enroll" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Quero me matricular</a>
           </div>
         </div>
       </section>
@@ -256,7 +256,59 @@
     </footer>
 
     <div class="sticky-cta">
-      <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Matricular</a>
+      <a class="btn btn-primary js-enroll" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Matricular</a>
     </div>
+
+    <div class="modal-overlay" id="enroll-modal" aria-hidden="true">
+      <div class="modal">
+        <button class="modal-close" type="button" aria-label="Fechar">×</button>
+        <h3>Matrícula enviada com sucesso</h3>
+        <p>
+          Obrigado por se matricular. Em breve nossa equipe entra em contato para
+          confirmar os detalhes.
+        </p>
+        <div class="modal-actions">
+          <a class="btn btn-outline" href="#beneficios">Conheça melhor a HS GYM</a>
+          <a class="btn btn-primary" href="index2.html">Ir para o site principal</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const modal = document.getElementById('enroll-modal');
+        const closeBtn = modal.querySelector('.modal-close');
+        const enrollLinks = document.querySelectorAll('.js-enroll');
+
+        const openModal = () => {
+          modal.classList.add('active');
+          modal.setAttribute('aria-hidden', 'false');
+        };
+
+        const closeModal = () => {
+          modal.classList.remove('active');
+          modal.setAttribute('aria-hidden', 'true');
+        };
+
+        enrollLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            setTimeout(openModal, 200);
+          });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            closeModal();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
