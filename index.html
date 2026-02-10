@@ -1,93 +1,262 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HS GYM - Pré-Matrícula Rápida</title>
-
-    <!-- External CSS link -->
-    <link rel="stylesheet" href="style.css">
-	
-    <!-- Font Awesome (Ícones) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-</head>
-<body>
-	<header class="main-header">
-		<div class="container">
-			<a href="#" class="header-logo-link">
-				<img src="img/logo.png.png" alt="Logo HS GYM" class="header-logo">
-			</a>
-            <!-- Navegação e menu hamburger removidos para focar na página de pré-matrícula -->
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HS GYM | Matrículas Abertas</title>
+    <link rel="stylesheet" href="cta.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="#inicio" aria-label="HS GYM">
+          <img src="img/logo.png.png" alt="Logo HS GYM" />
+        </a>
+        <nav class="top-actions">
+          <a class="btn btn-ghost" href="#planos">Planos</a>
+          <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">
+            Fazer matrícula
+          </a>
+        </nav>
+      </div>
     </header>
 
-    <section class="pre-enrollment fade-in">
-		<div class="container">
-			<h2 class="heading">MATRÍCULAS ABERTAS!</h2>
-			<p class="para-line white pre-enrollment-text">
-				Garanta sua vaga  e ganhe um <strong>descontão especial + um brinde exclusivo!</strong> 
-				<br>Não perca a chance de começar sua transformação com vantagens únicas.
-			</p>
-			
-			<a href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank" class="btn btn-enroll">
-				Garantir meu Desconto + Brinde!
-				<i class="fa-solid fa-rocket"></i>
-			</a>
-			<!-- Relógio de Contagem Regressiva -->
-			 <p class="para-line white"><strong>A PRÉ-MATRÍCULA ACABA EM:</strong></p>
-			<div id="countdown" class="countdown-timer">
-				<div class="timer-box">
-					<span id="days" class="timer-number">00</span>
-					<span class="timer-label">Dias</span>
-				</div>
-				<div class="timer-box">
-					<span id="hours" class="timer-number">00</span>
-					<span class="timer-label">Horas</span>
-				</div>
-				<div class="timer-box">
-					<span id="minutes" class="timer-number">00</span>
-					<span class="timer-label">Minutos</span>
-				</div>
-				<div class="timer-box">
-					<span id="seconds" class="timer-number">00</span>
-					<span class="timer-label">Segundos</span>
-				</div>
-			</div>
-			<!-- Fim do Relógio -->
-		</div>
-	</section>
+    <main id="inicio">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Matrículas abertas</span>
+            <h1>
+              Uma academia completa para você
+              <span>se cuidar, treinar bem e evoluir</span>
+            </h1>
+            <p class="lead">
+              A HS GYM foi feita para quem quer resultado com treino inteligente, ambiente
+              motivador e acompanhamento de verdade. Sem complicação, sem enrolação.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">
+                Garantir minha vaga
+              </a>
+              <span class="mini-note">Matrícula rápida. Vagas limitadas por turma.</span>
+            </div>
+          </div>
 
-    <footer class="footer-bottom">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="address">
-						<h2 class="contact-heading">Endereço</h2>
-						<p class="contact-para-line white"><a href="https://maps.app.goo.gl/UcWevuHY8ULdnqnh8" target="_blank">Rua Afonso Pena, <br>708, Rio Acima MG, 34300-000, Brasil</a></p>
-					</div>
-				</div>
-				<div class="col">
-					<div class="mail">
-						<h2 class="contact-heading"><a href="https://www.instagram.com/hsgym___" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></h2>
-						<p class="contact-para-line white">@hsgym</p>
-					</div>
-				</div>
-				<div class="col">
-					<div class="number">
-						<h2 class="contact-heading"><a href="https://api.whatsapp.com/send?phone=5531996251268&text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20a%20HS%20GYM"><i class="fa-brands fa-whatsapp"></i> Telefone</a></h2>
-						<p class="contact-para-line white">31 99625-1268</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-credit">Copyright © 2025 <a href="https://www.instagram.com/avix_infinity/?hl=en" target="_blank">AVIX INFINITY</a>. All Rights Reserved.</div>
-	</footer>
+          <div class="hero-visual">
+            <div class="hero-card wide">
+              <div class="hero-card-info">
+                <strong>O que você encontra aqui</strong>
+                <span>Estrutura completa, treinos dinâmicos e suporte real.</span>
+              </div>
+              <ul class="hero-list">
+                <li>Treinos para iniciantes e avançados</li>
+                <li>Professor presente durante a aula</li>
+                <li>Horários pensados para quem trabalha</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-	<!-- Botão Voltar ao Topo -->
-	<a id="back-to-top" href="#" class="back-to-top-btn"><i class="fa-solid fa-arrow-up"></i></a>
+      <section class="strip">
+        <div class="container strip-inner">
+          <div class="strip-item">
+            <i class="fa-solid fa-bolt"></i>
+            <span>Treino eficiente sem perder tempo</span>
+          </div>
+          <div class="strip-item">
+            <i class="fa-solid fa-heart"></i>
+            <span>Saúde e disposição no dia a dia</span>
+          </div>
+          <div class="strip-item">
+            <i class="fa-solid fa-dumbbell"></i>
+            <span>Estrutura organizada e segura</span>
+          </div>
+          <div class="strip-item">
+            <i class="fa-solid fa-user-graduate"></i>
+            <span>Orientação profissional sempre</span>
+          </div>
+        </div>
+      </section>
 
-	<script src="script.js" defer></script>
+      <section class="benefits" id="beneficios">
+        <div class="container">
+          <div class="section-head">
+            <h2>Por que a HS GYM é diferente</h2>
+            <p>O que você realmente precisa para treinar e continuar.</p>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Treino certo para o seu nível</h3>
+              <p>Você não fica perdido. O professor orienta e ajusta o treino conforme sua evolução.</p>
+            </article>
+            <article class="card">
+              <h3>Ambiente que motiva</h3>
+              <p>Gente treinando junto, energia boa e foco no progresso. Isso muda tudo.</p>
+            </article>
+            <article class="card">
+              <h3>Consistência que gera resultado</h3>
+              <p>Treinos objetivos e acompanhamento para você manter o ritmo sem desistir.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-</body>
+      <section class="plans" id="planos">
+        <div class="container">
+          <div class="section-head">
+            <h2>Escolha seu plano</h2>
+            <p>Sem valores aqui. Você escolhe o ideal e recebe a proposta completa no contato.</p>
+          </div>
+          <div class="grid-3">
+            <article class="plan">
+              <h3>Plano Semanal</h3>
+              <ul>
+                <li>Aulas 1x por semana</li>
+                <li>Treino orientado</li>
+                <li>Plano sob medida</li>
+              </ul>
+              <a class="btn btn-outline" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
+            </article>
+            <article class="plan featured">
+              <div class="tag">Mais escolhido</div>
+              <h3>Plano Mensal</h3>
+              <ul>
+                <li>Aulas ilimitadas</li>
+                <li>Treinos variados</li>
+                <li>Acompanhamento constante</li>
+              </ul>
+              <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
+            </article>
+            <article class="plan">
+              <h3>Plano Anual</h3>
+              <ul>
+                <li>Aulas ilimitadas</li>
+                <li>Foco total em resultado</li>
+                <li>Suporte prioritário</li>
+              </ul>
+              <a class="btn btn-outline" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="social-proof" id="depoimentos">
+        <div class="container">
+          <div class="section-head">
+            <h2>Quem treina, recomenda</h2>
+            <p>Depoimentos reais de quem já viu resultado.</p>
+          </div>
+          <div class="grid-3">
+            <article class="quote">
+              <p>"Em poucas semanas eu já senti energia e disposição de volta. Hoje não abro mão."</p>
+              <span>Ana Souza, 31</span>
+            </article>
+            <article class="quote">
+              <p>"Treino puxado, mas com acompanhamento o tempo todo. Evoluí muito rápido."</p>
+              <span>Carlos Lima, 28</span>
+            </article>
+            <article class="quote">
+              <p>"O ambiente é top e o professor cobra no ponto certo. Resultado veio."</p>
+              <span>Mariana Costa, 44</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="trainer" id="treinador">
+        <div class="container trainer-grid">
+          <div class="trainer-image">
+            <img src="img/trainer.png" alt="Heliatan Ferreira - Personal Trainer" />
+          </div>
+          <div class="trainer-info">
+            <span class="eyebrow">Seu treinador</span>
+            <h2>Heliatan Ferreira</h2>
+            <p>
+              Mais de 15 anos criando treinos personalizados. Aqui você tem um treinador
+              presente em cada aula, corrigindo e motivando para acelerar seu resultado.
+            </p>
+            <ul class="trainer-list">
+              <li>Experiência com atletas e iniciantes</li>
+              <li>Correção técnica a cada exercício</li>
+              <li>Foco total no seu objetivo</li>
+            </ul>
+            <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq" id="faq">
+        <div class="container">
+          <div class="section-head">
+            <h2>Perguntas rápidas</h2>
+            <p>Se ainda restou dúvida, olha isso:</p>
+          </div>
+          <div class="faq-grid">
+            <details>
+              <summary>Quais são os horários?</summary>
+              <p>Segundas, quartas e sextas: 06h, 18h30 e 19h30.</p>
+            </details>
+            <details>
+              <summary>Qual forma de pagamento?</summary>
+              <p>Pix ou dinheiro. Você escolhe o mais conveniente.</p>
+            </details>
+            <details>
+              <summary>Preciso ter experiência?</summary>
+              <p>Não. Os treinos são adaptados para qualquer nível.</p>
+            </details>
+            <details>
+              <summary>Como faço a matrícula?</summary>
+              <p>É só clicar em qualquer botão de matrícula e preencher o formulário.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-final" id="matricula">
+        <div class="container cta-final-inner">
+          <div>
+            <h2>Pronto para começar?</h2>
+            <p>
+              Preencha a matrícula em menos de 1 minuto e garanta sua vaga. As vagas são
+              limitadas por turma.
+            </p>
+          </div>
+          <div class="cta-buttons">
+            <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Quero me matricular</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <p>Rua Afonso Pena, 708<br />Rio Acima, MG 34300-000</p>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <p>WhatsApp: 31 99625-1268</p>
+          <p>Instagram: @hsgym___</p>
+        </div>
+        <div>
+          <h4>Atendimento</h4>
+          <p>Seg a Sex: 6h - 20h</p>
+          <p>Sábado: 8h - 14h</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 HS GYM. Todos os direitos reservados.</p>
+    </footer>
+
+    <div class="sticky-cta">
+      <a class="btn btn-primary" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Matricular</a>
+    </div>
+  </body>
 </html>
