@@ -154,6 +154,12 @@
               <a class="btn btn-outline js-enroll" href="https://forms.clickup.com/90132851194/f/2ky5cafu-353/3XN0VK53O9BMHIVTZN" target="_blank">Fazer matrícula</a>
             </article>
           </div>
+          <div class="plans-dots" aria-hidden="true">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
         </div>
       </section>
 
@@ -326,6 +332,25 @@
             closeModal();
           }
         });
+
+        const plansCarousel = document.querySelector('.plans-carousel');
+        const dots = document.querySelectorAll('.plans-dots .dot');
+
+        if (plansCarousel && dots.length) {
+          const updateDots = () => {
+            const cardWidth = plansCarousel.firstElementChild?.getBoundingClientRect().width || 1;
+            const index = Math.round(plansCarousel.scrollLeft / (cardWidth + 16));
+            dots.forEach((dot, i) => {
+              dot.classList.toggle('active', i === index);
+            });
+          };
+
+          plansCarousel.addEventListener('scroll', () => {
+            window.requestAnimationFrame(updateDots);
+          });
+
+          updateDots();
+        }
       })();
     </script>
   </body>
