@@ -573,6 +573,20 @@ details p {
     gap: 1.2rem;
   }
 
+  .plans-carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 85%;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+  }
+
+  .plans-carousel .plan {
+    scroll-snap-align: center;
+  }
+
   .card,
   .plan,
   .quote {
