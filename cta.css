@@ -237,6 +237,12 @@ img {
   gap: 1.5rem;
 }
 
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
 .card,
 .plan,
 .quote {
@@ -418,6 +424,27 @@ details p {
   z-index: 20;
 }
 
+.whatsapp-support {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #06140b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 12px 28px rgba(32, 212, 137, 0.35);
+  z-index: 30;
+}
+
+.whatsapp-support:hover {
+  transform: translateY(-2px);
+}
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -541,6 +568,11 @@ details p {
     gap: 1.2rem;
   }
 
+  .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
   .card,
   .plan,
   .quote {
@@ -580,6 +612,17 @@ details p {
 
   .footer-grid {
     gap: 1.5rem;
+  }
+
+  .whatsapp-support {
+    bottom: 5.2rem;
+    right: 1rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 .hero-list {
