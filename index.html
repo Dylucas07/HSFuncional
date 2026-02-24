@@ -12,6 +12,79 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>
+      .social-proof .section-head h2,
+      .social-proof .section-head p {
+        color: #fff;
+      }
+      .social-proof .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+      .social-proof .quote {
+        position: relative;
+        height: 100%;
+        min-height: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: var(--card);
+        padding: 1.25rem 1.6rem;
+        border-radius: 18px;
+        border: 1px solid rgba(90, 163, 255, 0.12);
+        text-align: left;
+        overflow: hidden;
+      }
+      .social-proof .quote::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -130%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transform: skewX(-20deg);
+        pointer-events: none;
+      }
+      .social-proof .quote.shine::after {
+        animation: quoteShine 0.8s ease;
+      }
+      @keyframes quoteShine {
+        from { left: -130%; }
+        to { left: 130%; }
+      }
+      .social-proof .quote span {
+        color: var(--accent);
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+      .social-proof .quote p {
+        color: var(--muted);
+        margin: 0;
+        flex: 1;
+      }
+      @media (max-width: 1024px) {
+        .social-proof .grid-4 {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          padding: 1rem 0 2rem;
+        }
+        .social-proof .quote {
+          flex: 0 0 85%;
+          max-width: 400px;
+          min-height: 320px;
+          scroll-snap-align: center;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="topbar">
@@ -145,21 +218,25 @@
       <section class="social-proof" id="depoimentos">
         <div class="container">
           <div class="section-head">
-            <h2>Quem treina, recomenda</h2>
-            <p>Depoimentos reais de quem já viu resultado.</p>
+            <h2>Experiências</h2>
+            <p>Experiências reais de quem já viu resultado.</p>
           </div>
-          <div class="grid-3">
+          <div class="grid-4">
             <article class="quote">
-              <p>"Em poucas semanas eu já senti energia e disposição de volta. Hoje não abro mão."</p>
-              <span>Ana Souza, 31</span>
+              <p>"O funcional do HS, para mim é saúde, disposição, corpo e mente alinhados, não fico sem."</p>
+              <span>Andreia, 39</span>
             </article>
             <article class="quote">
-              <p>"Treino puxado, mas com acompanhamento o tempo todo. Evoluí muito rápido."</p>
-              <span>Carlos Lima, 28</span>
+              <p>"O funcional pra mim, hoje, é sinônimo de saúde mental. Mais do que suor, encontrei alívio para a mente dentro do HS, uma turma com uma energia boa que não me deixa desistir."</p>
+              <span>Ana Paula, 34</span>
             </article>
             <article class="quote">
-              <p>"O ambiente é top e o professor cobra no ponto certo. Resultado veio."</p>
-              <span>Mariana Costa, 44</span>
+              <p>"Mais que melhorar a condição física, o HSFuncional é uma mudança para uma vida melhor!"</p>
+              <span>Gláuberth, 41</span>
+            </article>
+            <article class="quote">
+              <p>"Desde que comecei a fazer o HS Funcional, meus resultados melhoraram muito, meu colesterol diminuiu e minha saúde ficou muito mais equilibrada, mostrando como a atividade física faz toda a diferença no bem-estar."</p>
+              <span>Maria de Fátima, 56</span>
             </article>
           </div>
         </div>
@@ -326,6 +403,34 @@
           });
 
           updateDots();
+        }
+
+        const socialCarousel = document.querySelector('.social-proof .grid-4');
+        const quoteCards = socialCarousel ? [...socialCarousel.querySelectorAll('.quote')] : [];
+
+        if (socialCarousel && quoteCards.length) {
+          let scrollTimeout;
+
+          const triggerShine = () => {
+            const cardWidth = quoteCards[0]?.getBoundingClientRect().width || 1;
+            const gap = parseFloat(getComputedStyle(socialCarousel).columnGap || getComputedStyle(socialCarousel).gap || '0');
+            const index = Math.round(socialCarousel.scrollLeft / (cardWidth + gap));
+            const activeCard = quoteCards[Math.min(Math.max(index, 0), quoteCards.length - 1)];
+
+            if (activeCard) {
+              activeCard.classList.remove('shine');
+              void activeCard.offsetWidth;
+              activeCard.classList.add('shine');
+              setTimeout(() => activeCard.classList.remove('shine'), 820);
+            }
+          };
+
+          socialCarousel.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(triggerShine, 120);
+          });
+
+          triggerShine();
         }
       })();
     </script>
