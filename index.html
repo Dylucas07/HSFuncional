@@ -410,24 +410,50 @@
 
         if (socialCarousel && quoteCards.length) {
           let scrollTimeout;
+          let activeIndex = -1;
+
+          const getActiveCardIndex = () => {
+            const viewportCenter = socialCarousel.scrollLeft + socialCarousel.clientWidth / 2;
+            let closestIndex = 0;
+            let closestDistance = Number.POSITIVE_INFINITY;
+
+            quoteCards.forEach((card, i) => {
+              const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+              const distance = Math.abs(cardCenter - viewportCenter);
+              if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = i;
+              }
+            });
+
+            return closestIndex;
+          };
 
           const triggerShine = () => {
-            const cardWidth = quoteCards[0]?.getBoundingClientRect().width || 1;
-            const gap = parseFloat(getComputedStyle(socialCarousel).columnGap || getComputedStyle(socialCarousel).gap || '0');
-            const index = Math.round(socialCarousel.scrollLeft / (cardWidth + gap));
-            const activeCard = quoteCards[Math.min(Math.max(index, 0), quoteCards.length - 1)];
+            const index = getActiveCardIndex();
+            if (index === activeIndex) return;
+            activeIndex = index;
 
-            if (activeCard) {
-              activeCard.classList.remove('shine');
-              void activeCard.offsetWidth;
-              activeCard.classList.add('shine');
-              setTimeout(() => activeCard.classList.remove('shine'), 820);
-            }
+            const activeCard = quoteCards[index];
+            if (!activeCard) return;
+
+            activeCard.classList.remove('shine');
+            void activeCard.offsetWidth;
+            activeCard.classList.add('shine');
+            setTimeout(() => activeCard.classList.remove('shine'), 820);
           };
 
           socialCarousel.addEventListener('scroll', () => {
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(triggerShine, 120);
+          });
+
+          socialCarousel.addEventListener('touchend', () => {
+            setTimeout(triggerShine, 120);
+          });
+
+          socialCarousel.addEventListener('mouseup', () => {
+            setTimeout(triggerShine, 120);
           });
 
           triggerShine();
